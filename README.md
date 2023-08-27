@@ -1,15 +1,13 @@
 
-product
-- 
+# Skinfo
 
+A simple flask based website application that catalogues skincare ingredients & medications. Consists of an article list summary, individual article pages, contact and about us pages.
 
+### Future Developments
 
+- Organizing articles by respective tags.
+- Social media commenting for individual articles.
+- Draft previewing of articles before production.
+- Unit testing of python functions and classes.
 
-
-Future Updates
-- Number of posts (10, 25, 50, 100) and order (date increasing, date decreasing, author, popularity) by options on products 
-- Popular tags underneat header
-- Email subscription 
-- Tags
-- Contact forum
-- Leaving comments/getting comments from social media about articles
+Uses python 3.7 version and the Flask package for running the webserver. Website styling used the HTML, CSS and Jquery languages.
