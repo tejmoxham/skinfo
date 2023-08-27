@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+    {% include "meta.html" %}
+
+</head>
+
+<body>
+
+    {% include "header.html" %}
+        
+    <main class="items-wrapper">
+
+    {% include "sortby.html" %}
+
+    {% for item in items %}
+
+        <div class="item-wrapper">
+            <div class="img-wrapper">
+                <a href="{{url_for('item', name=item.item_name)}}"><img class="item-img" src="{{item.image_path}}" alt="item.title"></a>
+            </div>
+            <div class="heading-wrapper">
+                <a href="{{url_for('item', name=item.item_name)}}"><h3>{{item.title}}</h3></a>
+                <div><span class="text-color-three">{{item.author}}</span> published on {{item.date_published.strftime('%Y-%m-%d')}}</div>
+            </div>
+            <div class="description">{{item.synopsis}}</div>
+            <div class="lower-content">
+                <div><a class="read-more text-color-three text-bold link-hover-color-two" href="{{url_for('item', name=item.item_name)}}">Read More</a></div>
+                <div class="tags"><img height="18" src="/static/img/icons/tag.png">
+                    {% for tag in item.tags.split(',')[:-1] %}
+                    {# href="{{ # url_for('tags', name=tag)"}} #}
+                    <a class="text-color-four link-hover-color-two" href="">{{tag}}</a>,&nbsp;
+                    {% endfor%}
+                    {# href="{{ # url_for('tags', name=item.tags.(',')[-1])"}} #}
+                    <a class="text-color-four link-hover-color-two" href="">{{item.tags.split(',')[-1]}}</a>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    </main>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+
+<html>
+
+<head>
+
+    {% include "meta.html" %}
+
+</head>
+
+<body>
+
+    {% include "header.html" %}
+
+    <main class="content-wrapper">
+
+        <div class="content">
+
+            <h1>Contact Us</h2>
+
+            <h2>Any questions or remarks? Just write us a message!</h3>
+            
+            <form method="post" action="" name="contact_form" class="contact-form">
+
+                <div class="input-wrapper">
+                    <label for="contact_email">Email</label> 
+                    <input {% if "contact_email" in request.form %} value="{{request.form["contact_email"]}}" {% endif %} id="contact_email" name="contact_email" placeholder="Enter a valid email address..." type="text" />
+                </div>
+                <div class="input-wrapper">
+                    <label for="contact_name">Name</label> 
+                    <input {% if "contact_name" in request.form %} value="{{request.form["contact_name"]}}" {% endif %} id="contact_name" name="contact_name" placeholder="Enter your full name..." type="text" />    
+                </div>
+                <div class="input-wrapper">
+                    <label for="contact_message">Message</label> 
+                    <textarea rows="4" id="contact_message" placeholder="Enter your message to send..." name="contact_message">{% if "contact_message" in request.form %}{{request.form["contact_message"]}}{% endif %}</textarea>
+                </div>
+                                
+                <button>Submit</button>
+
+            </form>
+        </div>
+    </main>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

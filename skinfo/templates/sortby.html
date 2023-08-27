@@ -1,0 +1,30 @@
+
+<div class="drop-down-header">
+
+    <form action="" method="post">
+
+    <div class="menu-wrapper">
+        <select name="sortby">
+            <option {% if session['items_sortby']=="alphabetical" %}selected="selected"{% endif %} value="alphabetical">Alphabetical</option>
+            <option {% if session['items_sortby']=="newest" %}selected="selected"{% endif %} value="newest">Newest</option>
+            <option {% if session['items_sortby']=="oldest" %}selected="selected"{% endif %} value="oldest">Oldest</option>
+            <option {% if session['items_sortby']=="author" %}selected="selected"{% endif %} value="author">Author</option>
+            <option {% if session['items_sortby']=="popularity" %}selected="selected"{% endif %} value="popularity">Popularity</option>
+        </select>
+    </div>
+
+    <div class="menu-wrapper">
+        <select name="limit">
+            <option {% if session['items_limit']=="10" %}selected="selected"{% endif %} value="10">10</option>
+            <option {% if session['items_limit']=="25" %}selected="selected"{% endif %} value="25">25</option>
+            <option {% if session['items_limit']=="100" %}selected="selected"{% endif %} value="100">100</option>
+            <option {% if session['items_limit']=="250" %}selected="selected"{% endif %} value="250">250</option>
+            <option {% if session['items_limit']=="-1" %}selected="selected"{% endif %} value="-1">Max</option>
+        </select>
+    </div>
+
+    <button value="submit" class="menu-submit shift-right">Sort By</button>
+    
+    </form>
+
+</div>

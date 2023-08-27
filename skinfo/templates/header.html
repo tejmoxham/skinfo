@@ -1,0 +1,51 @@
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+        <div class="flash-message {{category}}">
+            <span>{{message}}</span>
+            <img class="flash-close cursor-pointer" height="14" src="/static/img/icons/close-white.png">
+        </div>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<header class="header-wrapper">
+    <div class="header">
+        <div class="left-wrapper">
+            <a href="{{url_for('home')}}">
+                <img height="36" src="/static/img/logo.png">
+            </a>
+            <img class="menu-icon" height="36" src="/static/img/icons/menu.png">
+        </div>   
+        <ul class="right-wrapper hide">
+            <li><a href="{{url_for('home')}}" class="text-link-two top-border">Items</a></li>
+            <li><a href="{{url_for('about')}}" class="text-link-two">About</a></li>
+            <li><a href="{{url_for('contact')}}" class="text-link-two">Contact</a></li>
+            <li><a id="subscribe-btn" class="btn">Subscribe</a></li>
+        </ul>   
+    </div>
+</header>
+
+<dialog id="subscribe-modal" class="popup-wrapper">
+    <div class="upper-wrapper">
+        <h3><img height="18" src="/static/img/icons/bell.png">&nbsp;&nbsp;Subscribe</h3>
+        <img id="subscribe-close" height="14" src="/static/img/icons/close.png">
+    </div> 
+    <div class="description">Join our mailing list to recieve regular updates about new and trending articles!</div>
+    <form class="subscribe-form" method="post" action="">
+        <input placeholder="Email..." name="subscription_email" type="text"/>
+        <button>Submit</button>
+    </form>
+    <div class="terms">By subscribing, you accept the <a class="text-color-two" href="{{url_for('about')}}">Terms of Service</a> and <a class="text-color-two" href="{{url_for('about')}}">Privacy Notice</a>.</div>
+</dialog>
+
+
+
+
+
+
+
+
